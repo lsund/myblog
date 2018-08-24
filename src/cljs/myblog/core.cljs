@@ -1,4 +1,4 @@
-(ns template.core
+(ns myblog.core
   (:require
    [reagent.core :as reagent :refer [atom]]))
 

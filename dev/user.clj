@@ -3,8 +3,8 @@
    [figwheel-sidecar.repl-api :as f]
    [clojure.tools.namespace.repl :as tools]
    [com.stuartsierra.component :as c]
-   [template.config :as config]
-   [template.core :refer [new-system]]
+   [myblog.config :as config]
+   [myblog.core :refer [new-system]]
    ,,,))
 
 (defn fig-start

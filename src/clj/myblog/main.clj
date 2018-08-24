@@ -1,10 +1,10 @@
-(ns template.main
+(ns myblog.main
   "Namespace for running the program once"
   (:require
-   [template.config :as config]
+   [myblog.config :as config]
    [org.httpkit.server :refer [run-server]]
    [compojure.handler :refer [site]]
-   [template.handler :refer [new-handler]]))
+   [myblog.handler :refer [new-handler]]))
 
 
 (defn -main [& args]

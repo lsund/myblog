@@ -1,4 +1,4 @@
-(ns template.handler
+(ns myblog.handler
   "Namespace for handling routes"
   (:require
    [compojure.route :as r]
@@ -15,16 +15,20 @@
    [taoensso.timbre :as logging]
    [taoensso.timbre.appenders.core :as appenders]
 
-   [template.db :as db]
-   [template.util :as util]
-   [template.render :as render]))
+   [myblog.db :as db]
+   [myblog.util :as util]
+   [myblog.render :as render]))
 
 
 (defn- app-routes
   [config]
   (routes
-   (GET "/" []
-        (render/index config))
+   (GET "/" [] (render/layout {:title "Ludvig Sundström"
+                               :page :index
+                               :config config}))
+   (GET "/blog" [] (render/layout {:title "Ludvig Sundström - Blog"
+                                   :page :blog
+                                   :config config}))
    (r/resources "/")
    (r/not-found render/not-found)))
 

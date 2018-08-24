@@ -1,45 +1,39 @@
-.center {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-}
-
-tr > td  {
-    border-left: 25px solid transparent;
-}
-
-.add-category {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-button {
-    cursor: pointer;
-    background-color: #eeeeee;
-}
-
-.limit {
-    width: 40px;
-}
-
-.earn {
-    width: 50px;
-}
-
-.spend {
-    width: 50px;
-}
-
-.stocks {
-}
-
-.funds {
-}
-
-.number-input {
-    width: 70px;
-}
-
-.text-input {
+.navbar-button {
+    margin-left: auto;
+    margin-right: auto;
     width: 100px;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -35px;
+}
+
+
+.content {
+    margin-top: 50px;
+}
+
+
+code {
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    font-size: 90%;
+    padding: 2px 4px;
+    word-break: break-all;
+    word-wrap: break-word;
+    display: inline;
+}
+
+
+pre > code {
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    font-size: 90%;
+    padding: 2px 4px;
+    word-break: break-all;
+    word-wrap: break-word;
+    display: block;
 }

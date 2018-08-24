@@ -1,10 +1,10 @@
-(ns template.core
+(ns myblog.core
   "Namespace that defines the system of components."
-  (:require
+ (:require
    [com.stuartsierra.component :as c]
-   [template.app :as app]
-   [template.server :as server]
-   [template.db :as db]))
+   [myblog.app :as app]
+   [myblog.server :as server]
+   [myblog.db :as db]))
 
 (defn new-system
   [config]
