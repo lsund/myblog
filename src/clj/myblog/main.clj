@@ -4,9 +4,11 @@
    [myblog.config :as config]
    [org.httpkit.server :refer [run-server]]
    [compojure.handler :refer [site]]
-   [myblog.handler :refer [new-handler]]))
+   [myblog.handler :as handler])
+  (:gen-class))
 
 
 (defn -main [& args]
-  (run-server (site #'new-handler) {:port (:port (config/load))})
-  (println "Server up and running"))
+  (let [config (config/load)]
+    (run-server (handler/new-handler (:app config)) {:port (get-in config [:server :port])})
+    (println "Server up and running")))
