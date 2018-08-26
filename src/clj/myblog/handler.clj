@@ -20,15 +20,25 @@
    [myblog.render :as render]))
 
 
+
+
+
 (defn- app-routes
   [config]
   (routes
-   (GET "/" [] (render/layout {:title "Ludvig Sundström"
-                               :page :index
-                               :config config}))
-   (GET "/blog" [] (render/layout {:title "Ludvig Sundström - Blog"
-                                   :page :blog
-                                   :config config}))
+   (GET "/" []
+        (render/layout {:title "Ludvig Sundström"
+                        :page :index
+                        :config config}))
+   (GET "/blog" []
+        (render/layout {:title "Ludvig Sundström - Blog"
+                        :page :blog
+                        :config config}))
+   (GET "/blog/:token" [token]
+        (render/layout {:title "Foo"
+                        :page :blogpost
+                        :config config
+                        :token token}))
    (r/resources "/")
    (r/not-found render/not-found)))
 

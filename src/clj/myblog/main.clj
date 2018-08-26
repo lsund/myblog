@@ -7,7 +7,6 @@
    [myblog.handler :as handler])
   (:gen-class))
 
-
 (defn -main [& args]
   (let [config (config/load)]
     (run-server (handler/new-handler (:app config)) {:port (get-in config [:server :port])})

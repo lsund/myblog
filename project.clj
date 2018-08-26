@@ -1,4 +1,4 @@
-(defproject myblog "0.1.0-SNAPSHOT"
+(defproject myblog "0.2.0-SNAPSHOT"
   :description "TODO"
   :url "https://github.com/lsund/myblog"
 
@@ -10,6 +10,7 @@
                  [org.clojure/clojurescript "1.9.946"]
                  [org.clojure/core.async  "0.4.474"]
                  [org.clojure/tools.namespace "0.2.11"]
+                 [com.stuartsierra/component "0.3.2"]
 
                  ;; Database
                  [org.clojure/java.jdbc "0.7.6"]
@@ -21,11 +22,10 @@
                  [compojure "1.6.1"]
                  [reagent "0.8.0"]
                  [hiccup "1.0.5"]
-
                  ;; Other
                  [com.taoensso/timbre "4.10.0"]
                  [io.aviso/pretty "0.1.34"]
-                 [com.stuartsierra/component "0.3.2"]
+                 [markdown-clj "1.0.2"]
 
                  ,,,]
 
