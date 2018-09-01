@@ -12,45 +12,47 @@
 
 [7]: https://www.haskell.org/hoogle/
 
-# Part 3: Choosing your paradigm
+# Part 3: Choosing your language
 
 [Part 2][6]
 
-**Target audiance**: People who likes programming languages - *4 minute read.*
+*4 minute read.*
 
-## Implications of checking the types of bindings
+## Implications of checking types
 
-Typos and inconsistencies are easy to do in Clojure. The Haskell type checker
-largely removes this risk. One of the main things you'll have to get used to is
-the handeling of sum types. With sum types (types which can take one of
-multiple distinct values) the type checker forces us to handle all cases. For
-example, there is no concept of null (nil) in haskell. Instead, you can use the
-`Maybe a` to describe the situation where you might have a value of type `a` or
-not. If you attempt to retrieve a record from the database, the result can be
-modelled with `Maybe DatabaseRecord` if `DatabaseRecord` is the type of your
-database record. `Maybe Record` is a disjoint type that can take exactly one of
-the possible Values, `Nothing` if the database value retrieval failed or `Just
-DatabaseRecord` if the database value retrieval was successful.
+In Clojure, it is easy to run into a runtime exception due to a type. In
+Haskell, it is virtually impossible to get a runtime exception due to a typo.
+One of the main things to get used to in haskell is the handling of sum types.
+With sum types (types which can take one of multiple distinct values) the type
+checker forces us to handle all cases. For example, there is no concept of null
+(nil) in haskell. Instead, you can use the `Maybe a` to describe the situation
+where you might have a value of type `a` or not. If you attempt to retrieve a
+record from the database, the result can be modeled with `Maybe
+DatabaseRecord` if `DatabaseRecord` is the type of your database record. `Maybe
+Record` is a disjoint type that can take exactly one of the possible Values,
+`Nothing` if the database value retrieval failed or `Just DatabaseRecord` if
+the database value retrieval was successful.
 
 Other direct implications include:
 
 * Discovering a library function without having to write it yourself using
   [hoogle][7]
-* Know what a function does by only reading the type signature. A classic
+* Knowing the implementation of a function by only reading the type signature. A classic
   example is the type signature `id :: a -> a`, which only can be implemented
-  one way
+  one way.
 * Know what a function does only by reading the well-defined name and type
-  signature. Consider (Haskell) `List.Split.chunksOf :: Int -> [a] -> [[a]]`)
-  vs (Clojure) `(defn chunks-of [n xs] ...)`
+  signature. Consider (Haskell) `chunksOf :: Int -> [a] -> [[a]]`)
+  vs (Clojure) `(defn chunks-of [n xs] ...)`. Types often convey essential
+  information of the input parameters and return values.
 * Knowing when side effects occur and what kind. A function declaration of type
   `fetch :: URL -> AJAX String` makes it pretty clear that an AJAX side effect
   takes place upon returning a String.
-* Ability to refactor out a piece of your code, and easily detect if something
+* Ability to refactor out a piece of your code, and directly detect if something
   broke.
 
 The things that the type checker gives us are helpful and makes writing most
 programs easier. However, the counter-argument is usually that these things
-really arn't that important in large scale programming projects.
+really are not that important in large scale programming projects.
 
 ## Programming in the large
 
@@ -64,33 +66,33 @@ Let's consider real programs in the real world. Real world programs:
 
 This makes it hard to enforce rules and constraints once the system grows.
 
-And now to the biggest problem of software engineering one: misconception of
-problem domain. This is a problem that applies to all engineers in all fields
-and paradigms. And this problem can not be type checked.
+And now to the biggest problem of software engineering: the misconception of
+the problem. This problem applies to all engineers in all fields and paradigms,
+and it can not be type checked.
 
-It is not feasable to try to fix peoples misunderstanding of what they are
-trying to do with constraints and guardrails. Often, thinks that work best
-nobody knows how to explain, like how to drive a car or how to play the game
-go. We use information driven methods such as ML in order to solve them, not
-strict logic.
+Clojurians argue that it is unfeasible to try to fix peoples misunderstanding
+of what they are trying to do with constraints and guardrails. Often, things
+that work best nobody knows how to explain, like how to drive a car or how to
+play the game go. We use information driven methods such as ML in order to
+solve them, not strict logic and enforced rules.
 
 ## The difference between a static and a dynamic language
 
 In the real world, information dominates logic. Data is fluid and
-unpredictable. In order to deal with that, there are two seperate approaches.
+unpredictable. In order to deal with that, there are many approaches. These are
+the two extremes:
 
-1. Make your program should be dynamically extensible, and open, and let the
-   data come to you.
-2. Try to understand your data and model your problem depending on that.
+1. Make your program dynamically extensible and open, and let the data come to
+   you in its pure form.
+2. Attempt to completely understand your data and model your problem depending
+   on that.
 
-But the fact of the matter is, we have both and we'll always have both. The
-question is only where you draw the line. Consider:
+The question is only where you draw the line. Consider:
 
 If you have a really open system you still have to define a well-defined
 interface to be able to do something useful. Otherwise you just know one single
 thing about your data: it's existence. At this point you're gradually turning
 your program static, and less flexible for changes. This turns into a paradox.
-
 Because of this paradox, we have the clash between the static and the dynamic
 world. So how do we choose?
 
@@ -106,42 +108,43 @@ way to go?
 
 #### Second attempt: Your view on the world
 
-The only thing left is to turn philosophical. There is a theory called
-platonism, that states that there is some universal truth behind all of
-mathematics. For example, a circle drawn on a piece of paper thats not a circle
-but merely a projection of the circle in the physical world. A circle is
-something abstract that does not originate from niether the physical world or
-the mental world of our minds. It exists in a third world, disconnected from
-the mental and physical world, the world of truth.
+The last resort is to turn philosophical. Platonism is a philosphy that states
+that there is a universal truth behind all of mathematics. For example, a
+circle drawn on a piece of paper thats not a circle but merely a projection of
+the circle in the physical world. A circle is something abstract that does not
+originate from neither the physical world or the mental world of our minds. It
+exists in a third world, disconnected from the mental and physical world, the
+world of truth.
 
 The complementary theory is known as formalism. Formalism states that it is
 possible for anyone can sit down with a pen and paper and write down a number
 of axioms, from which you derive _all_ of mathematics. As a side-note, Gödel
 showed that there are some things in mathematics that cannot be derived like
-this. On the other hand, the curry-howard-lambek isomorphism states that
+this. On the other hand, the Curry-Howard-Lambek isomorphism states that
 different fields in mathematics have a one-to-one correspondance, ie they are
 the same.
 
-Can you identify with one of these philosophies? If you can, you can finally
-choose programming paradigm.
+Can you identify with one of these philosophies? If you can, this might help
+you choose your programming paradigm..
 
-1. You're a platonist. You believe that mathematics and the universe has some
+1. You are a Platonist. You believe that mathematics and the universe has a
    universal truth disjoint from our (current) understanding. You shouldn't try
-   to set up your own rules and enforce theories of understanding the world.
-   Use Clojure as your tool as it helps you describe the world without
-   restrictions.
+   to set up your own rules and enforce theories of understanding the world,
+   instead let the world come to you in a free form.  Use Clojure as your tool
+   as it helps you describe the world without restrictions.
 
-2. You're a formalist. You believe that the fact that the "same" math was
-   discovered at different places at different times shows that there is som
-   inherent structure in our understanding and that we can control our own
-   mind. We make our own mental models and we change them as needed. Use
-   haskell as your tool since the language lets you describe structure better.
+2. You are a Formalist. You believe that the fact that the "same" math was
+   discovered at different places at different times shows that there is some
+   inherent structure in the world of problem solving. We make our own mental
+   models and we change them as needed. Use Haskell as your tool as it is
+   superior in describing this structure.
 
 No matter what thoughts and viewpoints you have today: Remember to stay open!
-As craftsmen, we are really proud on our knowledge and our craft and it usually
-hurts admitting that we might have done something wrong for a long time.
+As craftsmen, we are really proud on our knowledge and our craft and values.
+However, it is when we expand our mind that we can elevate ourselves to the
+next step.
 
-## Some Resources
+## Some thoughts were based on the following
 
 [Stephen Deihls Haskell in production][1]
 
