@@ -57,17 +57,18 @@
 
 (defn filename->label
   [filename]
-  (as-> (drop-last 3 filename) x
-    (apply str x)
-    (string/split x #"_")
-    (map string/capitalize x)
-    (string/join " " x)))
+  (let [date (apply str (take 10 filename))]
+    (str date " " (as-> (drop-last 3 (drop 10 filename)) x
+                    (apply str x)
+                    (string/split x #"-")
+                    (map string/capitalize x)
+                    (string/join " " x)))))
 
 
 (defmethod content :blog [params]
   [:body.mui-container
    [:ul
-    (for [post blogposts]
+    (for [post (reverse (sort blogposts))]
       [:li
        [:div.mui-panel
         [:a {:href (str "blog/" (apply str (drop-last 3 post)))}

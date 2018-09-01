@@ -35,7 +35,7 @@
                         :page :blog
                         :config config}))
    (GET "/blog/:token" [token]
-        (render/layout {:title "Foo"
+        (render/layout {:title "Ludvig Sundström - Blog"
                         :page :blogpost
                         :config config
                         :token token}))
