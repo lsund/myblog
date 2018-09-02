@@ -1,6 +1,6 @@
 # Part 1: Introduction
 
-*4 minute read.*
+*5 minute read.*
 
 **These posts are based on the presentation I had at the Clojure meetup group
 in Bonn, Germany. The idea was convey the main differences between dynamic and

@@ -31,14 +31,14 @@
 
 (defmethod content :index [params]
   [:div.content
-   [:p {:style "font-weight: bold"} "Hi! I'm Ludvig Sundström."]
-   [:p "I'm a software engineer in Berlin, Germany."]
+   [:h3  "Hi! I'm Ludvig Sundström."]
+   [:p "I'm a software engineer in Berlin, Germany, intersted in functional programming."]
    [:p "You can contact me at:"
     [:ul
      [:li [:a {:href "https://github.com/lsund"} "Github"]]
      [:li [:a {:href "https://github.com/lsund"} "Twitter"]]
      [:li [:a {:href "https://github.com/lsund"} "LinkedIn"]]]]
-   [:p "And this is my " [:a {:href "/pdf/ludvig_sundstrom_resume.pdf"} "Resume"]]])
+   [:p "And this is my " [:a {:href "/pdf/ludvig_sundstrom_resume.pdf"} "Resume."]]])
 
 
 (defn- file-token->html
@@ -67,6 +67,7 @@
 
 (defmethod content :blog [params]
   [:body.mui-container
+   [:h3 "Blog Posts"]
    [:ul
     (for [post (reverse (sort blogposts))]
       [:li

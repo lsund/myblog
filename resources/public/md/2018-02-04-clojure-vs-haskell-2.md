@@ -7,7 +7,7 @@
 
 [Part 1][1]
 
-*4 minute read.*
+*12 minute read.*
 
 ## Core ideas: Clojure
 

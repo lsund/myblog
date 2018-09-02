@@ -1,22 +1,8 @@
-[1]: http://www.stephendiehl.com/posts/production.html
-
-[2]: http://ingesolvoll.github.io/2017/06/22/plain-react-vs-reagent.html
-
-[3]: https://github.com/Gabriel439/post-rfc/blob/master/sotu.md
-
-[4]: http://tech.frontrowed.com/2017/11/01/rhetoric-of-clojure-and-haskell/
-
-[5]: http://www.lispcast.com/clojure-and-types
-
-[6]: /blog/post?id=dynamic_vs_static_p2
-
-[7]: https://www.haskell.org/hoogle/
-
 # Part 3: Choosing your language
 
 [Part 2][6]
 
-*4 minute read.*
+*7 minute read.*
 
 ## Implications of checking types
 
@@ -154,3 +140,18 @@ next step.
 
 [Haskell vs Clojure (A Haskell bloggers standpoint)][4]
 [Haskell vs Clojure (A Clojure bloggers standpoint)][5]
+
+[1]: http://www.stephendiehl.com/posts/production.html
+
+[2]: http://ingesolvoll.github.io/2017/06/22/plain-react-vs-reagent.html
+
+[3]: https://github.com/Gabriel439/post-rfc/blob/master/sotu.md
+
+[4]: http://tech.frontrowed.com/2017/11/01/rhetoric-of-clojure-and-haskell/
+
+[5]: http://www.lispcast.com/clojure-and-types
+
+[6]: /blog/post?id=dynamic_vs_static_p2
+
+[7]: https://www.haskell.org/hoogle/
+
