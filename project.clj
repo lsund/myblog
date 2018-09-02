@@ -1,4 +1,4 @@
-(defproject myblog "0.2.1"
+(defproject myblog "0.2.2"
   :description "TODO"
   :url "https://github.com/lsund/myblog"
 
