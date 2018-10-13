@@ -34,7 +34,7 @@
    [:h3  "Hi! I'm Ludvig Sundström."]
    [:p "I'm a software engineer in Berlin, Germany, intersted in functional programming. I studied
   computer science and got a masters degree from the University of Bonn. Here is my "
-    [:a {:href "/pdf/ludvig_sundstrom_thesis.pdf"} "masters thesis."]]
+    [:a {:href "/pdf/ludvig_sundstrom_thesis.pdf"} "master's thesis."]]
    [:p "You can contact me at:"
     [:ul
      [:li [:a {:href "https://github.com/lsund"} "Github"]]

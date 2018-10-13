@@ -16,3 +16,4 @@ resources/public/js
 /resources/public/css/mui.css
 *.log
 deploy-instructions.md
+deploy
