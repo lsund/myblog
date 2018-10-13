@@ -32,13 +32,15 @@
 (defmethod content :index [params]
   [:div.content
    [:h3  "Hi! I'm Ludvig Sundström."]
-   [:p "I'm a software engineer in Berlin, Germany, intersted in functional programming."]
+   [:p "I'm a software engineer in Berlin, Germany, intersted in functional programming. I studied
+  computer science and got a masters degree from the University of Bonn. Here is my "
+    [:a {:href "/pdf/ludvig_sundstrom_thesis.pdf"} "masters thesis."]]
    [:p "You can contact me at:"
     [:ul
      [:li [:a {:href "https://github.com/lsund"} "Github"]]
      [:li [:a {:href "https://github.com/lsund"} "Twitter"]]
      [:li [:a {:href "https://github.com/lsund"} "LinkedIn"]]]]
-   [:p "And this is my " [:a {:href "/pdf/ludvig_sundstrom_resume.pdf"} "Resume."]]])
+   [:p "And this is my " [:a {:href "/pdf/ludvig_sundstrom_resume.pdf"} "resume."]]])
 
 
 (defn- file-token->html
